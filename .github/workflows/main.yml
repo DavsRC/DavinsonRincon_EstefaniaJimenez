@@ -1,9 +1,8 @@
 name: Data Ingestion Pipeline
 
 on:
-  # Ejecutar diariamente a medianoche
-  schedule:
-    - cron: "0 0 * * *"
+  push:
+    branches: [ main ]
 
   # Permitir ejecución manual
   workflow_dispatch:
