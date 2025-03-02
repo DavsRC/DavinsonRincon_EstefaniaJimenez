@@ -43,13 +43,25 @@ git clone https://github.com/DavsRC/DavinsonRincon_EstefaniaJimenez.git
 cd DavinsonRincon_EstefaniaJimenez
 ```
 
-2. Instalar dependencias:
+2. crear entorno virtual
+
+```bash
+python -m venv venv
+```
+
+3. Activar el entorno virtual
+
+```bash
+venv\Scripts\activate
+```
+
+4. Instalar dependencias:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-3. Ejecutar el script de ingestión:
+5. Ejecutar el script de ingestión:
 
 ```bash
 python src/ingestion.py
