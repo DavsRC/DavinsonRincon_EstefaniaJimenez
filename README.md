@@ -77,7 +77,7 @@ Estos archivos se actualizan en el repositorio después de cada ejecución exito
 
 ## API utilizada
 
-Este proyecto utiliza la API de Rest Countries (https://restcountries.com), que proporciona información detallada sobre todos los países del mundo. Se utiliza el endpoint público `v3.1/all` para obtener datos completos de todos los países, incluyendo códigos, nombres, regiones, población, área, idiomas, capitales, zonas horarias, monedas y banderas.
+Este proyecto utiliza la API de Rest Countries (https://restcountries.com/v3.1/all), que proporciona información detallada sobre todos los países del mundo. Se utiliza el endpoint público `v3.1/all` para obtener datos completos de todos los países, incluyendo códigos, nombres, regiones, población, área, idiomas, capitales, zonas horarias, monedas y banderas.
 
 ## Datos almacenados
 
