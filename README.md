@@ -57,7 +57,7 @@ python src/ingestion.py
 
 ## Automatización con GitHub Actions
 
-El proyecto utiliza GitHub Actions para ejecutar automáticamente el proceso de ingestión de datos. El workflow está configurado para:
+El proyecto utiliza GitHub Actions para ejecutar automáticamente el proceso de ingestión de datos ".github/workflows/bigdata.yml". El workflow está configurado para:
 
 1. Ejecutarse diariamente a medianoche
 2. Ejecutarse manualmente cuando sea necesario
