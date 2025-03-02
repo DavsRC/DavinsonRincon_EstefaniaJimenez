@@ -1,59 +1,39 @@
-name: Data Ingestion Pipeline
+name: Actividad Ingesta de Datos
 
 on:
   push:
     branches: [ main ]
 
-  # Permitir ejecución manual
-  workflow_dispatch:
-
 jobs:
-  ingest_data:
-    runs-on: ubuntu-latest
+  build:
+    runs-on: windows-latest
+    permissions:
+      contents: write
+
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - name: Checkout repo
+        uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
         with:
-          python-version: "3.10"
-
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
-
-      - name: Create directories if not exist
-        run: |
-          mkdir -p src/static/auditoria
-          mkdir -p src/static/db
-          mkdir -p src/static/xlsx
-
-      - name: Run ingestion script
+          python-version: '3.9.2'
+      - name: paso1 - crea entorno virtual
+        run: python -m venv venv
+      - name: paso2 - activar entorno virtual
+        run: ./venv/Scripts/activate   
+      - name: paso3 - actualizar pip
+        run: pip install --upgrade pip
+      - name: paso4 - instalar dependencias
+        run: pip install -r requirements.txt
+      - name: paso5 - Ejecutar script
         run: python src/ingestion.py
 
-      - name: Verify files were created
-        run: |
-          if [ ! -f "src/static/db/ingestion.db" ]; then
-            echo "Database file was not created!"
-            exit 1
-          fi
-          if [ ! -f "src/static/xlsx/ingestion.xlsx" ]; then
-            echo "Excel file was not created!"
-            exit 1
-          fi
-          if [ ! -f "src/static/auditoria/ingestion.txt" ]; then
-            echo "Audit file was not created!"
-            exit 1
-          fi
-
-      - name: Commit and push if there are changes
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add src/static/auditoria/ingestion.txt src/static/xlsx/ingestion.xlsx src/static/db/ingestion.db
-          git commit -m "Update data files from automated ingestion" || echo "No changes to commit"
-          git push
-
+      - name: Commit and Push changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: generación informe prueba json
+          commit_user_name: Davinson Rincon [GitHub Actions]
+          commit_user_email: davinson.rincon@est.iudigital.edu.co
+          commit_author: Davinson Rincon <davinson.rincon@est.iudigital.edu.co>
