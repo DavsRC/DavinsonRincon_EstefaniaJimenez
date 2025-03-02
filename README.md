@@ -9,7 +9,7 @@ El proyecto extrae información sobre países desde la API de Rest Countries, al
 1. Un archivo Excel con una muestra de los registros almacenados
 2. Un archivo de auditoría que compara los datos extraídos con los almacenados
 
-Todo el proceso está automatizado mediante GitHub Actions para ejecutarse periódicamente.
+Todo el proceso está automatizado mediante GitHub Actions para ejecutarse manualmente.
 
 ## Estructura del proyecto
 
@@ -69,13 +69,13 @@ python src/ingestion.py
 
 ## Automatización con GitHub Actions
 
-El proyecto utiliza GitHub Actions para ejecutar automáticamente el proceso de ingestión de datos ".github/workflows/bigdata.yml". El workflow está configurado para:
+El proyecto utiliza GitHub Actions para ejecutar automáticamente el proceso de ingestión de datos ".github/workflows/main.yml". El workflow está configurado para:
 
-1. Ejecutarse diariamente a medianoche
-2. Ejecutarse manualmente cuando sea necesario
+1. Crea entorno virtual
+2. Activa el entorno virtual
 3. Instalar todas las dependencias requeridas
-4. Ejecutar el script de ingestión
-5. Verificar que todos los archivos se generan correctamente
+4. Ejecuta el script de ingestion
+5. Hace commit y push de los campos
 
 ### Verificación de la ejecución
 
