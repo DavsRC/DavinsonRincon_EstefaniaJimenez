@@ -1,11 +1,10 @@
 INFORME DE AUDITORÍA DE INGESTIÓN DE DATOS
 =========================================
 
-Fecha y hora: 2025-03-14 23:05:06
+Fecha y hora: 2025-03-14 22:58:46
 
 1. RESUMEN DE INGESTIÓN
 ----------------------
-Estado: La base de datos EXISTENTE fue eliminada y recreada.
 Total de registros consultados en API: 250
 Total de registros almacenados en BD: 250
 
