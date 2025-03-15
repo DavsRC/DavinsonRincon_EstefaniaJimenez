@@ -15,16 +15,19 @@ Todo el proceso está automatizado mediante GitHub Actions para ejecutarse manua
 
 ```
 nombre_apellido
-├── setup.py            # Configuración del paquete
-├── README.md           # Este archivo
-├── requirements.txt    # Dependencias del proyecto
-├── .github/workflows   # Configuración de GitHub Actions
-└── src                 # Código fuente
-    ├── static          # Archivos generados
-    │   ├── auditoria   # Archivos de auditoría
-    │   ├── db          # Base de datos SQLite
-    │   └── xlsx        # Archivos Excel generados
-    └── ingestion.py    # Script principal de ingestión
+├── setup.py            
+├── README.md           
+├── requirements.txt    
+├── .github/workflows   
+└── src                 
+    ├── static          
+    │   ├── auditoria   
+    │   ├── db          
+    │   └── xlsx        
+    ├── ingestion.py    
+    ├── simulacion_procesamiento.py
+    └── ensuciar_datos.py
+
 ```
 
 ## Instrucciones de uso
@@ -67,6 +70,12 @@ pip install -r requirements.txt
 python src/ingestion.py
 ```
 
+6. Ejecutar el script de Preprocesamiento y Limpieza de Datos
+
+   ```bash
+python src/simulacion_procesamiento.py
+```
+
 ## Automatización con GitHub Actions
 
 El proyecto utiliza GitHub Actions para ejecutar automáticamente el proceso de ingestión de datos ".github/workflows/main.yml". El workflow está configurado para:
@@ -75,7 +84,8 @@ El proyecto utiliza GitHub Actions para ejecutar automáticamente el proceso de 
 2. Activa el entorno virtual
 3. Instalar todas las dependencias requeridas
 4. Ejecuta el script de ingestion
-5. Hace commit y push de los campos
+5. Ejecutar el script de Preprocesamiento y Limpieza de Datos
+6. Hace commit y push de los campos
 
 ### Verificación de la ejecución
 
@@ -84,6 +94,9 @@ Puedes verificar la ejecución exitosa del workflow en la pestaña "Actions" del
 - La base de datos SQLite en `src/static/db/ingestion.db`
 - Un archivo Excel con una muestra de registros en `src/static/xlsx/ingestion.xlsx`
 - Un archivo de auditoría en `src/static/auditoria/ingestion.txt`
+- Un archivo de texto con el reporte del procesamiento y limpieza de los datos `src/static/auditoria/cleaning_report.txt`
+- Un archivo de Excel con la data filtrada en `src/static/auditoria/cleaned_data.xlsx`
+
 
 Estos archivos se actualizan en el repositorio después de cada ejecución exitosa del workflow.
 
