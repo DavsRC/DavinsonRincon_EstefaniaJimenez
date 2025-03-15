@@ -1,0 +1,51 @@
+INFORME DE AUDITORÍA DE LIMPIEZA DE DATOS
+========================================
+
+Fecha y hora: 2025-03-15 16:02:07
+
+1. ANÁLISIS EXPLORATORIO INICIAL
+-------------------------------
+Total de registros analizados: 251
+Registros duplicados encontrados: 1
+
+Valores nulos por columna:
+  - subregion: 7 valores nulos
+  - capital: 2 valores nulos
+
+2. PROCESO DE LIMPIEZA Y TRANSFORMACIÓN
+-------------------------------------
+Registros antes de la limpieza: 251
+Registros después de la limpieza: 250
+Registros eliminados: 1
+
+a. Eliminación de duplicados:
+   - 1 registros duplicados eliminados
+
+b. Manejo de valores nulos:
+   - subregion: Imputados 7 valores nulos con 'Unknown'
+   - capital: Imputados 2 valores nulos con 'Unknown'
+c. Corrección de tipos de datos:
+   - population: Convertido a entero
+d. Transformaciones adicionales:
+   - cca3: Eliminados espacios en blanco innecesarios
+   - name_common: Eliminados espacios en blanco innecesarios
+   - name_official: Eliminados espacios en blanco innecesarios
+   - region: Eliminados espacios en blanco innecesarios
+   - subregion: Eliminados espacios en blanco innecesarios
+   - flag: Eliminados espacios en blanco innecesarios
+   - timestamp: Eliminados espacios en blanco innecesarios
+   - Agregada columna 'population_density' que representa la densidad de población
+
+
+3. ESTADÍSTICAS FINALES
+----------------------
+Total de registros en el conjunto de datos limpio: 250
+Columnas en el conjunto de datos limpio: 15
+
+Muestra de los primeros 5 registros después de la limpieza:
+  cca3    name_common     region  population     area
+0  SGS  South Georgia  Antarctic          30   3903.0
+1  GRD        Grenada   Americas      112519    344.0
+2  CHE    Switzerland     Europe     8654622  41284.0
+3  SLE   Sierra Leone     Africa     7976985  71740.0
+4  HUN        Hungary     Europe     9749763  93028.0

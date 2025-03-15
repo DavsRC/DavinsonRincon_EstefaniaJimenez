@@ -26,11 +26,13 @@ jobs:
         run: pip install -r requirements.txt
       - name: paso4 - Ejecutar el script de ingestión
         run: python src/ingestion.py
+      - name: paso5 - Ejecutar el script de Preprocesamiento y Limpieza de Datos
+        run: python src/simulacion_procesamiento.py
 
       - name: Commit and Push changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: generación informe prueba json
+          commit_message: Ejecutar el script de Preprocesamiento y Limpieza de Datos
           commit_user_name: Davinson Rincon [GitHub Actions]
           commit_user_email: davinson.rincon@est.iudigital.edu.co
           commit_author: Davinson Rincon <davinson.rincon@est.iudigital.edu.co>
