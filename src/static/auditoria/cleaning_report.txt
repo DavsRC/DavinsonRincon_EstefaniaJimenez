@@ -1,7 +1,7 @@
 INFORME DE AUDITORÍA DE LIMPIEZA DE DATOS
 ========================================
 
-Fecha y hora: 2025-03-15 16:02:07
+Fecha y hora: 2025-03-15 21:10:29
 
 1. ANÁLISIS EXPLORATORIO INICIAL
 -------------------------------
