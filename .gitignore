@@ -1,0 +1,19 @@
+# Archivos de compilación de Python
+__pycache__/
+*.py[cod]
+*.so
+*.pyo
+
+# Entornos virtuales
+.env
+.venv
+env/
+venv/
+
+# Configuración y dependencias locales
+*.log
+*.sqlite3
+
+# Configuración de IDEs
+.vscode/
+.idea/
