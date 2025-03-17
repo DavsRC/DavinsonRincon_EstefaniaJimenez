@@ -9,6 +9,7 @@ jobs:
     runs-on: windows-latest
     permissions:
       contents: write
+      pull-requests: write
 
     steps:
       - name: Checkout repo
@@ -32,7 +33,10 @@ jobs:
       - name: Commit and Push changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: Ejecutar el script de Preprocesamiento y Limpieza de Datos
-          commit_user_name: Davinson Rincon [GitHub Actions]
-          commit_user_email: davinson.rincon@est.iudigital.edu.co
-          commit_author: Davinson Rincon <davinson.rincon@est.iudigital.edu.co>
+          commit_message: "Ejecutar el script de Preprocesamiento y Limpieza de Datos"
+          commit_user_name: "Davinson Rincon [GitHub Actions]"
+          commit_user_email: "davinson.rincon@est.iudigital.edu.co"
+          commit_author: "Davinson Rincon <davinson.rincon@est.iudigital.edu.co>"
+          push_options: '--force'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
