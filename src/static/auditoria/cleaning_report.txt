@@ -1,7 +1,7 @@
 INFORME DE AUDITORÍA DE LIMPIEZA DE DATOS
 ========================================
 
-Fecha y hora: 2025-03-15 21:55:39
+Fecha y hora: 2025-03-17 15:01:23
 
 1. ANÁLISIS EXPLORATORIO INICIAL
 -------------------------------
@@ -9,7 +9,7 @@ Total de registros analizados: 251
 Registros duplicados encontrados: 1
 
 Valores nulos por columna:
-  - subregion: 6 valores nulos
+  - subregion: 7 valores nulos
   - capital: 2 valores nulos
 
 2. PROCESO DE LIMPIEZA Y TRANSFORMACIÓN
@@ -22,7 +22,7 @@ a. Eliminación de duplicados:
    - 1 registros duplicados eliminados
 
 b. Manejo de valores nulos:
-   - subregion: Imputados 6 valores nulos con 'Unknown'
+   - subregion: Imputados 7 valores nulos con 'Unknown'
    - capital: Imputados 2 valores nulos con 'Unknown'
 c. Corrección de tipos de datos:
    - population: Convertido a entero
