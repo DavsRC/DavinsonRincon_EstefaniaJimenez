@@ -76,6 +76,12 @@ python src/ingestion.py
 python src/simulacion_procesamiento.py
 ```
 
+7. Ejecutar el script de Enriquecimietno 
+
+   ```bash
+python src/enrichment.py
+```
+
 ## Automatización con GitHub Actions
 
 El proyecto utiliza GitHub Actions para ejecutar automáticamente el proceso de ingestión de datos ".github/workflows/main.yml". El workflow está configurado para:
@@ -85,7 +91,8 @@ El proyecto utiliza GitHub Actions para ejecutar automáticamente el proceso de 
 3. Instalar todas las dependencias requeridas
 4. Ejecuta el script de ingestion
 5. Ejecutar el script de Preprocesamiento y Limpieza de Datos
-6. Hace commit y push de los campos
+6. Ejecutar script de enriquecimiento 
+7. Hace commit y push de los campos
 
 ### Verificación de la ejecución
 
