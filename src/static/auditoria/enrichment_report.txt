@@ -1,0 +1,61 @@
+INFORME DE AUDITORÍA DEL PROCESO DE ENRIQUECIMIENTO DE DATOS
+=========================================================
+
+Fecha y hora: 2025-03-30 19:35:10
+
+1. RESUMEN DEL PROCESO DE ENRIQUECIMIENTO
+---------------------------------------
+Total de países en el dataset base: 250
+Países con información de idiomas: 249
+Países enriquecidos con datos adicionales: 1
+Total de coincidencias de idiomas: 1
+
+2. PAÍSES SIN COINCIDENCIAS EN EL DATASET DE IDIOMAS
+------------------------------------------------
+  - South Georgia
+  - Grenada
+  - Switzerland
+  - Sierra Leone
+  - Hungary
+  - Taiwan
+  - Wallis and Futuna
+  - Barbados
+  - Pitcairn Islands
+  - Ivory Coast
+  - Tunisia
+  - Italy
+  - Benin
+  - Indonesia
+  - Cape Verde
+  - Saint Kitts and Nevis
+  - Laos
+  - Caribbean Netherlands
+  - Uganda
+  - Andorra
+  ... y 228 países más
+
+3. FAMILIAS LINGÜÍSTICAS PRINCIPALES POR REGIÓN
+-------------------------------------------
+
+Región: Europe
+  - Dravidian: 1 países
+
+4. MÉTRICAS LINGÜÍSTICAS DEL DATASET ENRIQUECIDO
+--------------------------------------------
+  - Monolingual: 153 países
+  - Low diversity: 88 países
+  - Medium diversity: 6 países
+  - High diversity: 2 países
+  - No data: 1 países
+
+Promedio de idiomas por país: 1.66
+País con mayor diversidad lingüística: Zimbabwe (15 idiomas)
+
+5. MUESTRA DE DATOS ENRIQUECIDOS
+-----------------------------
+  cca3    name_common     region primary_language language_family  language_count linguistic_diversity
+0  SGS  South Georgia  Antarctic             None            None               1          Monolingual
+1  GRD        Grenada   Americas             None            None               1          Monolingual
+2  CHE    Switzerland     Europe             None            None               4     Medium diversity
+3  SLE   Sierra Leone     Africa             None            None               1          Monolingual
+4  HUN        Hungary     Europe             None            None               1          Monolingual

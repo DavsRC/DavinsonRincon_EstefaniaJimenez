@@ -29,6 +29,8 @@ jobs:
         run: python src/ingestion.py
       - name: paso5 - Ejecutar el script de Preprocesamiento y Limpieza de Datos
         run: python src/simulacion_procesamiento.py
+      - name: paso6 - Ejecutar el script de Enriquesimiento de Datos
+        run: python src/enrichment.py
 
       - name: Commit and Push changes
         uses: stefanzweifel/git-auto-commit-action@v5
@@ -37,6 +39,6 @@ jobs:
           commit_user_name: "Davinson Rincon [GitHub Actions]"
           commit_user_email: "davinson.rincon@est.iudigital.edu.co"
           commit_author: "Davinson Rincon <davinson.rincon@est.iudigital.edu.co>"
-          push_options: '--force'
+          push_options: "--force"
         env:
           GITHUB_TOKEN: ${{ secrets.GH_PAT }}
