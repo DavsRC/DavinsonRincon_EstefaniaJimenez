@@ -177,7 +177,7 @@ def calculate_additional_metrics(enriched_df):
     # Crear copia para no modificar el DataFrame original
     final_df = enriched_df.copy()
     
-    # 1. Calcular la densidad lingüística (idiomas por millón de habitantes)
+    # 1. Calcular la densidad lingüística (idiomas por millón de habitantes )
     final_df['language_density'] = final_df.apply(
         lambda row: (row['language_count'] * 1000000 / row['population']) 
         if row['population'] > 0 and row['language_count'] > 0 else 0, 
