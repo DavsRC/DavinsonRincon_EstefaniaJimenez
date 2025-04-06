@@ -1,127 +1,125 @@
-# Proyecto de Ingestión de Datos desde API (Proyecto Integrador - Big Data)
 
-Este proyecto implementa un pipeline de ingestión de datos desde la API de Rest Countries hacia una base de datos SQLite, generando evidencias del proceso.
+# Proyecto Integrador de Big Data: Ingesta, Preprocesamiento y Enriquecimiento de Datos
 
-## Descripción de la solución
+Este proyecto implementa un **pipeline completo de procesamiento de datos** que simula un entorno de Big Data en la nube. Inicia con la **ingesta desde la API de Rest Countries**, pasa por una fase de **preprocesamiento y limpieza de datos**, seguida de un **enriquecimiento** con datos externos, y finaliza con el **almacenamiento y generación de evidencias** en una base de datos analítica (`SQLite`).
 
-El proyecto extrae información sobre países desde la API de Rest Countries, almacena estos datos en una base de datos SQLite, y genera dos archivos de evidencia:
+## Descripción de la Solución
 
-1. Un archivo Excel con una muestra de los registros almacenados
-2. Un archivo de auditoría que compara los datos extraídos con los almacenados
+El flujo general del proyecto incluye:
 
-Todo el proceso está automatizado mediante GitHub Actions para ejecutarse manualmente.
+1. **Ingesta de datos** desde la API pública de Rest Countries.
+2. **Preprocesamiento**: simulación de datos sucios, limpieza y filtrado de la información.
+3. **Enriquecimiento**: integración de datos adicionales desde archivos complementarios (por ejemplo, idiomas).
+4. **Almacenamiento** de los datos procesados en una base de datos `SQLite`.
+5. **Generación de evidencias** (Excel, archivos de texto, auditorías).
+6. **Automatización del pipeline** mediante GitHub Actions.
 
-## Estructura del proyecto
+Todo el proceso simula una arquitectura cloud de procesamiento por lotes, con evidencias almacenadas como si fueran outputs de un flujo en producción.
+
+## Estructura del Proyecto
 
 ```
 nombre_apellido
-├── setup.py            
-├── README.md           
-├── requirements.txt    
-├── .github/workflows   
-└── src                 
-    ├── static          
-    │   ├── auditoria   
-    │   ├── db          
-    │   └── xlsx        
-    ├── ingestion.py    
+├── setup.py
+├── README.md
+├── requirements.txt
+├── .github/workflows
+│   └── main.yml
+└── src
+    ├── static
+    │   ├── auditoria
+    │   ├── db
+    │   └── xlsx
+    ├── ingestion.py
     ├── simulacion_procesamiento.py
+    ├── enrichment.py
     └── ensuciar_datos.py
-
 ```
 
-## Instrucciones de uso
+## Instrucciones de Uso
 
-### Requisitos previos
+### Requisitos
 
 - Python 3.8 o superior
 - Git
 
 ### Instalación local
 
-1. Clonar el repositorio:
-
 ```bash
+# 1. Clonar el repositorio
 git clone https://github.com/DavsRC/DavinsonRincon_EstefaniaJimenez.git
 cd DavinsonRincon_EstefaniaJimenez
-```
 
-2. crear entorno virtual
-
-```bash
+# 2. Crear y activar entorno virtual
 python -m venv venv
-```
+venv\Scripts\activate  # En Windows
 
-3. Activar el entorno virtual
-
-```bash
-venv\Scripts\activate
-```
-
-4. Instalar dependencias:
-
-```bash
+# 3. Instalar dependencias
 pip install -r requirements.txt
 ```
 
-5. Ejecutar el script de ingestión:
+### Ejecución de scripts
 
 ```bash
+# 1. Ingesta de datos desde API
 python src/ingestion.py
-```
 
-6. Ejecutar el script de Preprocesamiento y Limpieza de Datos
-
-   ```bash
+# 2. Preprocesamiento y limpieza de datos
 python src/simulacion_procesamiento.py
-```
 
-7. Ejecutar el script de Enriquecimietno 
-
-   ```bash
+# 3. Enriquecimiento de datos
 python src/enrichment.py
 ```
 
 ## Automatización con GitHub Actions
 
-El proyecto utiliza GitHub Actions para ejecutar automáticamente el proceso de ingestión de datos ".github/workflows/main.yml". El workflow está configurado para:
+El flujo completo está automatizado usando GitHub Actions en `.github/workflows/main.yml`. El pipeline realiza:
 
-1. Crea entorno virtual
-2. Activa el entorno virtual
-3. Instalar todas las dependencias requeridas
-4. Ejecuta el script de ingestion
-5. Ejecutar el script de Preprocesamiento y Limpieza de Datos
-6. Ejecutar script de enriquecimiento 
-7. Hace commit y push de los campos
+1. Creación del entorno virtual
+2. Instalación de dependencias
+3. Ejecución secuencial de scripts (`ingestion.py`, `simulacion_procesamiento.py`, `enrichment.py`)
+4. Commit y push de los archivos generados como evidencia
 
-### Verificación de la ejecución
+### Archivos generados
 
-Puedes verificar la ejecución exitosa del workflow en la pestaña "Actions" del repositorio. Después de cada ejecución, se generan:
+Tras una ejecución exitosa se generan:
 
-- La base de datos SQLite en `src/static/db/ingestion.db`
-- Un archivo Excel con una muestra de registros en `src/static/xlsx/ingestion.xlsx`
-- Un archivo de auditoría en `src/static/auditoria/ingestion.txt`
-- Un archivo de texto con el reporte del procesamiento y limpieza de los datos `src/static/auditoria/cleaning_report.txt`
-- Un archivo de Excel con la data filtrada en `src/static/auditoria/cleaned_data.xlsx`
+- `src/static/db/ingestion.db`: Base de datos SQLite con los datos finales
+- `src/static/xlsx/ingestion.xlsx`: Muestra de los datos extraídos
+- `src/static/auditoria/ingestion.txt`: Auditoría de la ingesta
+- `src/static/auditoria/cleaning_report.txt`: Reporte del preprocesamiento
+- `src/static/auditoria/cleaned_data.xlsx`: Datos filtrados
+- `src/static/auditoria/enriched_data.xlsx`: Dataset final enriquecido
+- `src/static/auditoria/enriched_report.txt`: Descripción del enriquecimiento
 
+## API Utilizada
 
-Estos archivos se actualizan en el repositorio después de cada ejecución exitosa del workflow.
+Se utiliza el endpoint público `https://restcountries.com/v3.1/all` de **Rest Countries API**, que entrega datos completos por país: nombre, región, idiomas, monedas, población, bandera, etc.
 
-## API utilizada
+## Modelo de Datos
 
-Este proyecto utiliza la API de Rest Countries (https://restcountries.com/v3.1/all), que proporciona información detallada sobre todos los países del mundo. Se utiliza el endpoint público `v3.1/all` para obtener datos completos de todos los países, incluyendo códigos, nombres, regiones, población, área, idiomas, capitales, zonas horarias, monedas y banderas.
+La base de datos `SQLite` resultante contiene una tabla principal con los siguientes campos:
 
-## Datos almacenados
+- `cca3`: Código de país (clave primaria)
+- `common_name`, `official_name`: Nombres del país
+- `region`, `subregion`: Ubicación geopolítica
+- `population`, `area`: Demográficos
+- `languages`: Idiomas (como texto enriquecido)
+- `capital`, `timezones`, `currencies`, `flag_url`: Atributos adicionales
+- `timestamp`: Fecha/hora de la ingesta
+- `language_family`, `language_complexity`: Datos agregados del enriquecimiento
 
-La base de datos SQLite almacena la siguiente información para cada país:
+## Beneficios y Simulación de Entorno Cloud
 
-- Código ISO 3166-1 alpha-3 (cca3)
-- Nombre común y oficial
-- Región y subregión
-- Población y área
-- Idiomas
-- Capital(es)
-- Zonas horarias
-- Monedas
-- URL de la bandera
-- Timestamp de la ingestión
+Este proyecto simula un entorno cloud al implementar:
+
+- Automatización vía CI/CD con GitHub Actions (similar a pipelines en la nube)
+- Uso de SQLite como base analítica local
+- Separación de etapas del pipeline (como en un entorno distribuido)
+- Generación de archivos y artefactos reproducibles
+
+## Créditos
+
+Proyecto desarrollado por:  
+**Davinson Rincón & Estefanía Jiménez**  
+Para la Actividad 3 del Proyecto Integrador - Big Data
