@@ -1,7 +1,7 @@
 INFORME DE AUDITORÍA DE INGESTIÓN DE DATOS
 =========================================
 
-Fecha y hora: 2025-04-06 02:01:41
+Fecha y hora: 2025-04-06 02:22:40
 
 1. RESUMEN DE INGESTIÓN
 ----------------------
