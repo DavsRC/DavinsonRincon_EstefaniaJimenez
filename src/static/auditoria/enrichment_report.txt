@@ -1,7 +1,7 @@
 INFORME DE AUDITORÍA DEL PROCESO DE ENRIQUECIMIENTO DE DATOS
 =========================================================
 
-Fecha y hora: 2025-03-31 00:48:37
+Fecha y hora: 2025-04-06 02:01:44
 
 1. RESUMEN DEL PROCESO DE ENRIQUECIMIENTO
 ---------------------------------------
